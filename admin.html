@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard</title>
+</head>
+
+<body>
+    <h1>Admin Dashboard - Approve Users</h1>
+
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Username</th>
+                <th>Email</th>
+                <th>Role</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for user in users %}
+            <tr>
+                <td>{{ user[1] }}</td> <!-- Username -->
+                <td>{{ user[2] }}</td> <!-- Email -->
+                <td>{{ user[3] }}</td> <!-- Role -->
+                <td>
+                    <a href="{{ url_for('is_approved', id=user[0]) }}">Approve</a>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+</body>
+
+</html>
